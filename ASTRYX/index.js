@@ -161,7 +161,7 @@ const dbInitPromise = Promise.all([
 client.once('clientReady', async () => {
   printSuccess(`Authentication successful -> ${colors.PURPLE}${client.user.tag}${colors.RESET}`);
 
-  client.user.setPresence({ status: "dnd", activities: [] });
+  client.user.setPresence({ status: "dnd", activities: [{ name: `${config.PREFIX}help | @DYNEX`, type: ActivityType.Listening }] });
 
   printLoading('Synchronizing slash commands');
   try {

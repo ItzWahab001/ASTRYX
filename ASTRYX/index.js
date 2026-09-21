@@ -164,7 +164,7 @@ client.once('clientReady', async () => {
   client.user.setPresence({
     status: 'idle',
     activities: [{
-      name: `${config.PREFIX}help | @ASTRYX`,
+      name: `${config.PREFIX}help | @DYNEX`,
       type: ActivityType.Listening
     }]
   });

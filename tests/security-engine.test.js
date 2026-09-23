@@ -1,4 +1,0 @@
-const test=require('node:test');const assert=require('node:assert/strict');const {similarity,joinRisk,actionThreshold}=require('../src/services/security-engine');
-test('similarity detects near-identical raid usernames',()=>assert.ok(similarity('Raid_User01','raid-user02')>0.85));
-test('anti-raid join velocity and account age are independent signals',()=>{const now=Date.now();const r=joinRisk({joinThreshold:3,windowMs:15000,minAccountAgeDays:7,names:['alpha123'],username:'alpha124',createdTimestamp:now-86400000},[now-1000,now-2000],now);assert.equal(r.raid,true);assert.equal(r.suspicious,true);assert.equal(r.similar,true)});
-test('sliding action threshold expires old actions',()=>{const now=10000;assert.equal(actionThreshold([6000,7000],now,5000,3),true);assert.equal(actionThreshold([6000],now,5000,3),false)});

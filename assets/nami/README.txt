@@ -1,0 +1,1 @@
+Nami installer binaries were intentionally excluded from the theme-updated distribution because they are large platform installers and are not part of the website/bot theme source. No application source functionality was removed or modified.

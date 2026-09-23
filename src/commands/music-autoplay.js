@@ -1,2 +1,0 @@
-const {SlashCommandBuilder}=require('discord.js');const {mw}=require('./_helpers');const music=require('../services/music');
-module.exports={data:new SlashCommandBuilder().setName('autoplay').setDescription('Toggle autoplay').addBooleanOption(o=>o.setName('enabled').setDescription('Enabled').setRequired(true)),execute:i=>mw.createMiddleware({})(i,null,async()=>{const p=music.assertVoiceControl(i);p.setAutoplay(i.options.getBoolean('enabled'));await i.reply(`♾️ Autoplay: **${p.autoplay?'ON':'OFF'}**`)})};

@@ -1,2 +1,0 @@
-const {SlashCommandBuilder,PermissionFlagsBits,mw}=require('./_helpers');const ticket=require('../services/tickets');const note={data:new SlashCommandBuilder().setName('ticket-note').setDescription('Add a private staff note').addStringOption(o=>o.setName('note').setDescription('Note').setRequired(true)),execute:i=>mw.createMiddleware({permissions:[PermissionFlagsBits.ManageMessages]})(i,null,()=>ticket.note(i,i.options.getString('note')))};
-module.exports=note;

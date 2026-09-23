@@ -1,42 +1,13 @@
 {
-  "name": "dynex",
-  "version": "2.3.3",
+  "name": "dynex-bot",
+  "version": "1.0.0",
   "private": true,
-  "type": "commonjs",
-  "main": "src/index.js",
-  "engines": {
-    "node": ">=20"
-  },
+  "description": "DYNEX-BOT combined bundle (launcher + 7 components)",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node --watch src/index.js",
-    "test": "node --test",
-    "lint": "eslint .",
-    "migrate": "node src/database/migrate.js",
-    "check": "node --check src/index.js && node src/tools/load-check.js",
-    "audit": "node src/tools/load-check.js && node --test",
-    "verify": "npm test && node src/tools/load-check.js",
-    "syntax": "node -e \"const fs=require('fs'),path=require('path');function w(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,e.name);e.isDirectory()?w(p):e.name.endsWith('.js')&&require('child_process').execFileSync(process.execPath,['--check',p])}}w('src')\"",
-    "integration:discord": "node src/tools/discord-integration-check.js"
+    "start": "node DYNEX-BOT.js",
+    "verify": "node DYNEX-BOT.js --verify",
+    "manifest": "node DYNEX-BOT.js --manifest",
+    "install:all": "node scripts/install-all.js"
   },
-  "dependencies": {
-    "@discordjs/voice": "0.17.0",
-    "better-sqlite3": "11.3.0",
-    "connect-sqlite3": "0.9.15",
-    "discord.js": "14.16.3",
-    "dotenv": "16.4.5",
-    "ejs": "3.1.10",
-    "express": "4.21.1",
-    "express-rate-limit": "7.4.1",
-    "helmet": "8.0.0",
-    "openai": "4.76.1",
-    "pino": "9.5.0",
-    "play-dl": "1.9.7",
-    "zod": "3.23.8",
-    "express-session": "1.18.1"
-  },
-  "devDependencies": {
-    "eslint": "9.15.0",
-    "globals": "15.12.0"
-  }
+  "engines": { "node": ">=18" }
 }

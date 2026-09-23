@@ -1,2 +1,0 @@
-const {SlashCommandBuilder}=require('discord.js');const {mw}=require('./_helpers');const music=require('../services/music');
-module.exports={data:new SlashCommandBuilder().setName('seek').setDescription('Seek within the current track').addIntegerOption(o=>o.setName('seconds').setDescription('Position in seconds').setMinValue(0).setRequired(true)),execute:i=>mw.createMiddleware({})(i,null,async()=>{const p=music.assertVoiceControl(i);await p.seek(i.options.getInteger('seconds'));await i.reply(`⏩ Seeking to **${i.options.getInteger('seconds')}s**.`)})};

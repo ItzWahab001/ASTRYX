@@ -1,0 +1,1 @@
+module.exports = { name: 'easter', description: 'easter', async execute(m) { if (!m.channel.nsfw) return m.reply('🔞'); try { const r = await new (require('nsfwhub').NSFW)().fetch('easter'); m.reply({ embeds: [new (require('discord.js').EmbedBuilder)().setTitle('Easter').setImage(r.image?.url || r.url).setColor('#4b76ff')] }); } catch (e) { console.error(e); m.reply('❌'); } } };

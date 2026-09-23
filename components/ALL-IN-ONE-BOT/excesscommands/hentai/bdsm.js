@@ -1,0 +1,1 @@
+module.exports = { name: 'bdsm', description: 'bdsm', async execute(m) { if (!m.channel.nsfw) return m.reply('🔞'); try { const r = await new (require('nsfwhub').NSFW)().fetch('bdsm'); m.reply({ embeds: [new (require('discord.js').EmbedBuilder)().setTitle('BDSM').setImage(r.image?.url || r.url).setColor('#4b76ff')] }); } catch (e) { console.error(e); m.reply('❌'); } } };

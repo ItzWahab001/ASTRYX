@@ -58,4 +58,4 @@ function verify(){
 }
 if(process.argv.includes('--manifest')) buildManifest();
 else if(process.argv.includes('--verify')) verify();
-else http.createServer((req,res)=>{res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});res.end(page());}).listen(3000,()=>console.log('DYNEX-BOT dashboard: http://localhost:3000'));
+else http.createServer((req,res)=>{res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});res.end(page());}).listen(process.env.PORT||3000,()=>console.log('DYNEX-BOT dashboard: http://localhost:3000'));

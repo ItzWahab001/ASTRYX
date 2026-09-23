@@ -9,12 +9,207 @@
     "Fluorine-landing-page",
     "PrimeMusic-Lavalink"
   ],
-  "fileCount": 769,
+  "fileCount": 808,
   "files": [
     {
       "path": ".env.example",
       "bytes": 217,
       "sha256": "3324a68afcc7b7cff7d439d5e15245a8abb385f3a31b0d598fc6e79e3422f9cf"
+    },
+    {
+      "path": ".git/COMMIT_EDITMSG",
+      "bytes": 39,
+      "sha256": "c05882c4def18536a3cf1ca20bc092d9e76d26977be095d8c7290b8bfe6869dc"
+    },
+    {
+      "path": ".git/HEAD",
+      "bytes": 21,
+      "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80"
+    },
+    {
+      "path": ".git/config",
+      "bytes": 262,
+      "sha256": "5bd6ae9071bcbc57c29a2399170a12baed161208fd88ea76b6844598389e132f"
+    },
+    {
+      "path": ".git/description",
+      "bytes": 73,
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee"
+    },
+    {
+      "path": ".git/hooks/applypatch-msg.sample",
+      "bytes": 509,
+      "sha256": "94f95b4ce4df0e89b8e267ec1634d9187c71802b78029833fdce4045aa6f08a5"
+    },
+    {
+      "path": ".git/hooks/commit-msg.sample",
+      "bytes": 2003,
+      "sha256": "b15d4a0a2e3362aafd28ff178cb5b7ec7a6e64ac29c50209b99458819b6d0cba"
+    },
+    {
+      "path": ".git/hooks/fsmonitor-watchman.sample",
+      "bytes": 4638,
+      "sha256": "a290aca891c7e3729750c56f8d049e554894bc96d240072230e61c756ea3f7e4"
+    },
+    {
+      "path": ".git/hooks/post-update.sample",
+      "bytes": 220,
+      "sha256": "f8a8e865862e210edfc56488db28ac0386f6f8f9ad08260d15ce26ffa9de89a5"
+    },
+    {
+      "path": ".git/hooks/pre-applypatch.sample",
+      "bytes": 455,
+      "sha256": "e57b877b3902f9d1aede7779c0f84a410fd93cf0e04bddb351503829ddf08840"
+    },
+    {
+      "path": ".git/hooks/pre-commit.sample",
+      "bytes": 1680,
+      "sha256": "964431168c0016a3c95a162b33521d34d980926b0e482184dfc599af49b5bfd6"
+    },
+    {
+      "path": ".git/hooks/pre-merge-commit.sample",
+      "bytes": 447,
+      "sha256": "5efbacab709d11ca887672440664e782d4e11f021879f415b68dfeadeae4624e"
+    },
+    {
+      "path": ".git/hooks/pre-push.sample",
+      "bytes": 1405,
+      "sha256": "74b00ff982a9de10b548a36682161f01eb40ad8263bbb4cebf5bfcf03ec756ea"
+    },
+    {
+      "path": ".git/hooks/pre-rebase.sample",
+      "bytes": 4956,
+      "sha256": "3ff0475974e08ce6d85658b20684f59fd36b02c44f8565fca85785f9aabc0e4f"
+    },
+    {
+      "path": ".git/hooks/pre-receive.sample",
+      "bytes": 575,
+      "sha256": "bf8f6d6f740288cd6553dc2a236e97ee914cacf63c874982756c4cdb23f93bc4"
+    },
+    {
+      "path": ".git/hooks/prepare-commit-msg.sample",
+      "bytes": 1604,
+      "sha256": "6920f3f24cd33d57f24c1a5489f2af247c49dc978e96a885e018f867992ae7f8"
+    },
+    {
+      "path": ".git/hooks/push-to-checkout.sample",
+      "bytes": 2814,
+      "sha256": "8ff7cb671a9324bd72006d7b1517cc01b798610a59cdaa93ccdc436238f6e881"
+    },
+    {
+      "path": ".git/hooks/sendemail-validate.sample",
+      "bytes": 2339,
+      "sha256": "fd1f34006ffad4ab58df6386e8245cdcadb8f5cc3056256a61033246e89320c3"
+    },
+    {
+      "path": ".git/hooks/update.sample",
+      "bytes": 3681,
+      "sha256": "af1135f0b538e9f877b21b852f61b17f2cf3661df42b8831bd3b598fdc5f2127"
+    },
+    {
+      "path": ".git/index",
+      "bytes": 96819,
+      "sha256": "80b3b9012ccfb5fd7189f01f1685b1b739c333f9748c3d505b34d27806ca6a8b"
+    },
+    {
+      "path": ".git/info/exclude",
+      "bytes": 240,
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1"
+    },
+    {
+      "path": ".git/info/refs",
+      "bytes": 252,
+      "sha256": "fc9041514511f6890ffdf9ec53ab25443ff7214271c29b8ecaceaf242f607d68"
+    },
+    {
+      "path": ".git/logs/HEAD",
+      "bytes": 389,
+      "sha256": "e4174a1aeef42ac491b00c01302506fb1b39bbaf18be63083c8b26263c39f4f7"
+    },
+    {
+      "path": ".git/logs/refs/heads/backup-old",
+      "bytes": 170,
+      "sha256": "d32599ac707eade2f6c7a19b37cb11cc06d5c69294130cf48f8fff2056a269e6"
+    },
+    {
+      "path": ".git/logs/refs/heads/main",
+      "bytes": 389,
+      "sha256": "e4174a1aeef42ac491b00c01302506fb1b39bbaf18be63083c8b26263c39f4f7"
+    },
+    {
+      "path": ".git/logs/refs/remotes/origin/HEAD",
+      "bytes": 198,
+      "sha256": "ed2304381002f79d469b6322af0c55c02b00b948ec0b359b735123f1802a95ea"
+    },
+    {
+      "path": ".git/logs/refs/remotes/origin/main",
+      "bytes": 159,
+      "sha256": "49c8677341029d8041b6605fc15fed01d05ec5f5f4878fa685aac5867a0d7ebf"
+    },
+    {
+      "path": ".git/objects/info/packs",
+      "bytes": 107,
+      "sha256": "a6b7d0f60e9724e5a7771865b0dd691d36d4fb45438ba19e90505a614794ce07"
+    },
+    {
+      "path": ".git/objects/pack/multi-pack-index",
+      "bytes": 53884,
+      "sha256": "cc130dfb57188b05988c0175d39eed5138ffdb725aa6874d4692f87d30b9add8"
+    },
+    {
+      "path": ".git/objects/pack/pack-d1d04dcb21beb02167f5116a688b1d4d60865de8.idx",
+      "bytes": 27112,
+      "sha256": "0cb2f960171448517159c9e2c8ac6ca6308936a678bf08f53964182e8ab75f1a"
+    },
+    {
+      "path": ".git/objects/pack/pack-d1d04dcb21beb02167f5116a688b1d4d60865de8.pack",
+      "bytes": 25313364,
+      "sha256": "0d634fe8b31dbab0412f26ab58896a95f1aa0dca18c02b5bab9d82cae82ecc2d"
+    },
+    {
+      "path": ".git/objects/pack/pack-d1d04dcb21beb02167f5116a688b1d4d60865de8.rev",
+      "bytes": 3772,
+      "sha256": "a6b0782e76ce81040da6da7a3aef66c632afbfc8dade8deddea57e405e0336b2"
+    },
+    {
+      "path": ".git/objects/pack/pack-f66a36203cd894c4a4f3208bc7b9af5e4809b330.idx",
+      "bytes": 27700,
+      "sha256": "8bc1f68ef19bf1327bf7ff7ef08a077cdd2a9bc28a41e85959c03403730436c9"
+    },
+    {
+      "path": ".git/objects/pack/pack-f66a36203cd894c4a4f3208bc7b9af5e4809b330.pack",
+      "bytes": 2375722,
+      "sha256": "adb03389b08f042df25fa262b2e5f73090fa250e9e1a39986d099936133b7998"
+    },
+    {
+      "path": ".git/objects/pack/pack-f66a36203cd894c4a4f3208bc7b9af5e4809b330.rev",
+      "bytes": 3856,
+      "sha256": "c1eb083e3f4d227db6a083e6cedf3a4458a6ee6436f24c7b50f7db7adf0f1bea"
+    },
+    {
+      "path": ".git/packed-refs",
+      "bytes": 112,
+      "sha256": "e026eeed09f2fd46775208c860e3d140db822d62e34a589ab67774ffe8eaf733"
+    },
+    {
+      "path": ".git/refs/heads/backup-old",
+      "bytes": 41,
+      "sha256": "a85eaacc2f33f58c76584079245bcc9bf5f9a1e88c1ffe1c2de27eb5cb5c2d3c"
+    },
+    {
+      "path": ".git/refs/heads/main",
+      "bytes": 41,
+      "sha256": "fb555c9d8c25e57f2dedf04746486dd420dd623f3073ca032802329e6f51ac92"
+    },
+    {
+      "path": ".git/refs/remotes/origin/HEAD",
+      "bytes": 30,
+      "sha256": "2bb6a24aa0fc6c484100f5d51a29bbad841cd2c755f5d93faa204e5dbb4eb2b4"
+    },
+    {
+      "path": ".git/refs/remotes/origin/main",
+      "bytes": 41,
+      "sha256": "fb555c9d8c25e57f2dedf04746486dd420dd623f3073ca032802329e6f51ac92"
     },
     {
       "path": ".gitignore",
@@ -23,8 +218,8 @@
     },
     {
       "path": "DYNEX-BOT.js",
-      "bytes": 3672,
-      "sha256": "3f6d40ca4cd9cf538a8a258f2f93f04784f07a5a1e5431b5d85a571537bc81b4"
+      "bytes": 3690,
+      "sha256": "5375326f21eb5c7694ba7efb299402632be3a5a8fa88e76fd27e4760d657d592"
     },
     {
       "path": "README.md",

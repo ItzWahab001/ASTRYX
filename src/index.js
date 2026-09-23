@@ -22,7 +22,7 @@ function shutdown(signal='shutdown',exitCode=0){
   logger.info({signal,exitCode},'DYNEX shutdown started');
   readyEvent.stopRecovery();
   giveaway.stop();
-  try{music.destroyAll()}catch(error){logger.error({err:error},'music shutdown cleanup failed')}
+  try{if(typeof music.destroyAll==='function')music.destroyAll()}catch(error){logger.error({err:error},'music shutdown cleanup failed')}
   if(client){try{client.destroy()}catch(error){logger.error({err:error},'Discord client shutdown failed')}}
   const finish=()=>{closeDatabase();process.exitCode=exitCode; if(exitCode!==0)process.exit(exitCode)};
   if(server?.close){try{server.close(finish)}catch(error){logger.error({err:error},'dashboard shutdown failed');finish()}}else finish();

@@ -1,0 +1,3 @@
+const {SlashCommandBuilder,PermissionFlagsBits,mw,db,EmbedBuilder,ActionRowBuilder,ButtonBuilder,ButtonStyle,guild,mod}=require('./_helpers');const music=require('../services/music');const ticket=require('../services/tickets');const repo=require('../repositories/guild');const levels=require('../services/levels');const eco=require('../services/economy');
+const balance={data:new SlashCommandBuilder().setName('balance').setDescription('View balance').addUserOption(o=>o.setName('user').setDescription('User')),execute:i=>mw.createMiddleware({})(i,null,async()=>{const u=i.options.getUser('user')||i.user;await i.reply(`💰 **${u.username}** has **${eco.balance(i.guild.id,u.id)}** coins.`)})};
+module.exports=balance;

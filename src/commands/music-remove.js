@@ -1,0 +1,2 @@
+const {SlashCommandBuilder}=require('discord.js');const {mw}=require('./_helpers');const music=require('../services/music');
+module.exports={data:new SlashCommandBuilder().setName('queue-remove').setDescription('Remove a queue item').addIntegerOption(o=>o.setName('position').setDescription('Queue position').setMinValue(1).setRequired(true)),execute:i=>mw.createMiddleware({})(i,null,async()=>{const x=music.assertVoiceControl(i).remove(i.options.getInteger('position')-1);await i.reply(`🗑️ Removed **${x.title}**.`)})};

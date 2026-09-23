@@ -1,0 +1,2 @@
+const {SlashCommandBuilder}=require('discord.js');const {mw}=require('./_helpers');const music=require('../services/music');
+module.exports={data:new SlashCommandBuilder().setName('loop').setDescription('Set loop mode').addStringOption(o=>o.setName('mode').setDescription('off/track/queue').setRequired(true).addChoices({name:'Off',value:'off'},{name:'Track',value:'track'},{name:'Queue',value:'queue'})),execute:i=>mw.createMiddleware({})(i,null,async()=>{const p=music.assertVoiceControl(i);p.setLoop(i.options.getString('mode'));await i.reply(`🔁 Loop mode: **${p.loop}**`)})};

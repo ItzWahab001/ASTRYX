@@ -1,0 +1,10 @@
+const test=require('node:test');
+const fs=require('fs');
+const path=require('path');
+function walk(root){return fs.readdirSync(root,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(path.join(root,x.name)):[path.join(root,x.name)])}
+
+test('all command modules export slash command definitions',()=>{const dir=path.join(__dirname,'../src/commands');for(const f of fs.readdirSync(dir).filter(x=>x.endsWith('.js')&&!x.startsWith('_'))){const s=fs.readFileSync(path.join(dir,f),'utf8');if(!s.includes('module.exports'))throw new Error(`${f} has no export`);if(!s.includes('setName('))throw new Error(`${f} has no slash command definition`)}});
+test('no obvious placeholder markers in production source',()=>{const roots=['src','web'];const markerPattern=new RegExp(['TO'+'DO','FIX'+'ME','FAKE_'+'FEATURE','DEMO_'+'ONLY','CHANGE'+'-ME'].join('|'),'i');for(const root of roots)for(const f of walk(path.join(__dirname,'..',root)).filter(f=>/\.(js|ejs|css|md)$/.test(f))){const s=fs.readFileSync(f,'utf8');if(markerPattern.test(s))throw new Error(`placeholder marker in ${f}`)}});
+test('native AutoMod regex uses Keyword trigger with regex metadata',()=>{const s=fs.readFileSync(path.join(__dirname,'../src/services/automod-config.js'),'utf8');if(!s.includes("regex:AutoModerationRuleTriggerType.Keyword"))throw new Error('regex trigger mapping is not Discord native Keyword trigger');if(!s.includes('regexPatterns'))throw new Error('regexPatterns metadata is missing');});
+test('economy transfer service validates positive safe amounts',()=>{const s=fs.readFileSync(path.join(__dirname,'../src/repositories/economy.js'),'utf8');if(!s.includes('amount<=0')||!s.includes('Number.isSafeInteger(amount)'))throw new Error('economy amount validation missing')});
+test('production source contains no obvious hardcoded credentials',()=>{for(const root of ['src','web'])for(const f of walk(path.join(__dirname,'..',root)).filter(f=>/\.(js|ejs)$/.test(f))){const s=fs.readFileSync(f,'utf8');if(/DISCORD_TOKEN\s*[:=]\s*['"][^'"]{20,}['"]|OPENAI_API_KEY\s*[:=]\s*['"]sk-[^'"]+['"]/i.test(s))throw new Error(`possible hardcoded credential in ${f}`)}});

@@ -1,174 +1,63 @@
-> [!WARNING]
-> **This project has been archived.**
->
-> Active development, improvements, bug fixes, and feature updates have been discontinued.
->
-> The project will remain publicly available, and you are **free to use, fork, and modify it** according to the project's license. However, no further updates or official support are planned.
+# DYNEX v2
 
-<div align="center">
+DYNEX is a modular Discord.js v14 bot focused on production server infrastructure: moderation, Discord AutoMod management, raid/nuke protection, support tickets, music, economy, leveling, giveaways, verification, custom commands, AI and an OAuth2 dashboard.
 
-# ✨ ASTRYX
-
-
-### The Ultimate Multipurpose Discord Bot
-
-A powerful, fast, and feature-rich Discord bot built with **discord.js v14**.
-
-[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white)]()
-[![Discord.js](https://img.shields.io/badge/discord.js-v14-5865F2?style=for-the-badge&logo=discord&logoColor=white)]()
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?style=for-the-badge&logo=postgresql&logoColor=white)]()
-[![License](https://img.shields.io/badge/License-MELON%20OSL-purple?style=for-the-badge)]()
-
-*Built for communities of every size.*
-
-</div>
-
----
-
-# ✨ Features
-
-ASTRYX combines everything you need into one powerful Discord bot.
-
-| Category | Description |
-| :-------- | :---------- |
-| 🛡️ Moderation | Ban, Kick, Mute, Timeout, Lock, Unlock, Slowmode, Tempban, Softban |
-| ⚔️ Antinuke | Advanced protection against raids and malicious actions |
-| 🚔 Automod | Automatic spam, invite, scam and abuse protection |
-| 🎵 Music | High-quality music powered by Lavalink |
-| 🤖 AI | AI chat, image analysis and smart utilities |
-| 🎫 Tickets | Fully configurable support ticket system |
-| 🎭 Reaction Roles | Self-assignable roles using reactions |
-| 👋 Welcome | Custom welcome and farewell messages |
-| 📝 Logging | Comprehensive server logging |
-| 🎁 Giveaways | Create and manage giveaways |
-| 📊 Statistics | Server and user statistics |
-| 😄 Fun | Memes, Truth or Dare, Roleplay, Fake Messages |
-| 🔍 Utility | Avatar, Banner, User Info, Server Info, Ping and more |
-| 📁 Export | Export channels, members, roles and server data |
-| 🔄 Converters | Unit, Base, Text and Encoding converters |
-| 🐾 Animals | Random adorable animal pictures |
-| 💰 Crypto | Cryptocurrency prices and information |
-| 📚 Wikipedia | Search Wikipedia instantly |
-| 📰 News | Latest news headlines |
-
----
-
-# 🚀 Installation
-
-### 1. Clone the repository
-
-```bash
-git clone <repository-url>
-cd ASTRYX
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Emoji Copy
-
-Emoji Sync
-
-```bash
-node scripts/upload-application-emojis.js --write-source 
-```
-
-Edit `.env` with your credentials.
-
-```env
-DISCORD_TOKEN=
-CLIENT_ID=
-OWNER_ID=
-
-DATABASE_URL=
-
-# Optional
-LAVALINK_HOST=
-LAVALINK_PORT=
-LAVALINK_PASSWORD=
-
-OPENAI_API_KEY=
-```
-
-### 4. Start the bot
-
-```bash
-npm start
-```
-
----
-
-# 📜 Available Scripts
-
-| Command | Description |
-| :------ | :---------- |
-| `npm start` | Start the bot |
-| `npm run check` | Check project for syntax errors |
-| `npm run emojis:upload` | Upload application emojis |
-| `npm run emojis:dry-run` | Preview emoji upload |
-
----
-
-# 🛠️ Tech Stack
-
-- Node.js
+## Runtime
+- Node.js 20+
 - discord.js v14
-- PostgreSQL
-- Sequelize ORM
-- Lavalink
-- Express
-- Canvas
+- SQLite + repository layer
+- FFmpeg for voice playback
+- Express + Discord OAuth2 dashboard
 
----
+## Setup
+1. Copy `.env.example` to `.env`.
+2. Generate a long random `SESSION_SECRET` (48+ characters in production).
+3. Set the Discord token/client ID/client secret and OAuth redirect URI.
+4. `npm install`
+5. `npm run migrate`
+6. `npm start`
 
-# 📁 Project Structure
+For `dynex.xyz`, set `PUBLIC_BASE_URL=https://dynex.xyz` and `DISCORD_REDIRECT_URI=https://dynex.xyz/auth/callback`.
 
-```text
-src/
-├── commands/
-├── events/
-├── handlers/
-├── models/
-├── services/
-├── utils/
-└── index.js
-```
+## Discord intents
+Enable the privileged intents required by your server configuration, especially **Server Members** and **Message Content** for welcome/level/custom-prefix behavior.
 
----
+## Command groups
+Moderation: `/ban`, `/kick`, `/timeout`, `/untimeout`, `/warn`, `/warnings`, `/clear`, `/slowmode`, `/lock`, `/unlock`, `/softban`, `/voice-mute`, `/voice-unmute`, `/case`, `/cases`, `/modhistory`, `/modlogs`.
 
-# ❤️ Credits
+AutoMod: `/automod setup`, `/automod status`, `/automod rules`, `/automod rule add`, `/automod rule edit`, `/automod rule delete`, `/automod exempt-role`, `/automod exempt-channel`, `/automod logs` plus legacy management commands.
 
-<div align="center">
+Security: `/security`, `/antiraid`, `/antinuke`, `/antinuke-whitelist`, `/antinuke-threshold`, `/antinuke-lockdown`, `/security-logs`.
 
-<a href="https://discord.com/users/1124248109472550993">
-<img src="https://lanyard.cnrad.dev/api/1124248109472550993?bg=1a1b26&idleMessage=Probably%20building%20something..." width="100%">
-</a>
+Tickets: `/ticket-setup`, `/ticket-panel`, `/ticket-add`, `/ticket-remove`, `/ticket-rename`, `/ticket-claim`, `/ticket-close`, `/ticket-reopen`, `/ticket-archive`, `/ticket-note`, `/ticket-priority`, `/ticket-lock`, `/ticket-unlock`, `/ticket-stats`, `/ticket-history`.
 
-## itsfizys
+Music: `/play`, `/queue`, `/skip`, `/previous`, `/pause`, `/resume`, `/stop`, `/shuffle`, `/loop`, `/volume`, `/247`, `/music-panel`.
 
-Special thanks for the development and inspiration behind ASTRYX.
+Community: `/welcome`, `/autorole`, `/verification-setup`, `/verification-panel`, `/rank`, `/leaderboard`, `/setxp`, `/reactionrole`, `/giveaway`, `/giveaway-end`, `/giveaway-reroll`.
 
-</div>
+Economy: `/balance`, `/daily`, `/work`, `/pay`, `/transactions`.
 
----
+AI: `/ai`, `/ai-teacher`.
 
-# 📄 License
+Configuration: `/settings`, `/configure`, `/custom-set`, `/custom-delete`, `/custom-list`, `/help`.
 
-This project is licensed under the **MELON OPEN SOURCE LICENSE**.
+## Security model
+Commands use a centralized middleware pipeline for guild checks, user permissions, bot permissions and cooldowns. Moderation uses Discord role hierarchy checks and server-owner protection. Dashboard writes require OAuth authorization plus CSRF validation.
 
-See the [LICENSE](./LICENSE) file for complete terms and conditions.
+Anti-raid uses sliding join/leave signals, account age, username similarity, risk scoring, quarantine, lockdown and automatic recovery. Anti-nuke uses Discord audit-log events, persistent thresholds, trusted users/roles, incident IDs and best-effort resource recovery.
 
-© 2026 **itsfizys (Aegis)**
+## Database
+SQLite is the supported runtime database in this release. Database access is isolated behind repositories and a transaction helper so PostgreSQL migration does not require rewriting command/business logic. PostgreSQL is intentionally not enabled in this release; `DATABASE_DRIVER=postgres` fails fast rather than pretending a PostgreSQL adapter exists. A future adapter must be tested against the same repository contract before activation.
 
----
+## Dashboard
+The dashboard is served by the bot process. It provides OAuth login with token refresh, live guild authorization, CSRF-protected settings, channel/role/category selectors, responsive control-center pages, security/AutoMod/ticket/music overview data, session storage and `/health` + `/metrics` endpoints.
 
-<div align="center">
+## Testing
+- `npm test` — Node test suite.
+- `npm run check` — syntax + command loader check.
+- `npm run lint` — ESLint.
 
-⭐ If you enjoy this project, consider giving it a star!
+CI currently uses `npm install` because this repository does not contain a generated lockfile; `npm ci` is intentionally not claimed until a real lockfile can be generated and committed.
 
-Made with ❤️ for Discord communities.
-
-</div>
+## Production deployment
+See `DEPLOYMENT.md` and `SECURITY.md`.

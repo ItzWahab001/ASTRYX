@@ -1,0 +1,2 @@
+const {SlashCommandBuilder}=require('discord.js');const {mw}=require('./_helpers');const music=require('../services/music');
+module.exports={data:new SlashCommandBuilder().setName('volume').setDescription('Set volume').addIntegerOption(o=>o.setName('percent').setDescription('1-100').setMinValue(1).setMaxValue(100).setRequired(true)),execute:i=>mw.createMiddleware({})(i,null,async()=>{const p=music.assertVoiceControl(i);p.setVolume(i.options.getInteger('percent'));await i.reply(`🔊 Volume: **${p.volume}%**`)})};

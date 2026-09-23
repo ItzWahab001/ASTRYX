@@ -1,0 +1,1 @@
+const repo=require('../repositories/economy');function balance(g,u){return repo.row(g,u).balance}function reward(g,u,type,amount){const x=repo.row(g,u);x.balance+=amount;if(type==='daily')x.daily_at=Date.now();if(type==='work')x.work_at=Date.now();repo.save(x);return x.balance}function pay(g,from,to,amount){return repo.pay(g,from,to,amount)}module.exports={balance,reward,pay};

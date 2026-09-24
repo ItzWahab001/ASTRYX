@@ -1,0 +1,1 @@
+import type {ButtonHTMLAttributes,ReactNode} from 'react'; export function Button({children,...p}:ButtonHTMLAttributes<HTMLButtonElement>&{children:ReactNode}){return <button {...p}>{children}</button>} export function Card({children}:{children:ReactNode}){return <section>{children}</section>} export function Badge({children}:{children:ReactNode}){return <span>{children}</span>}

@@ -1,3 +1,0 @@
-const {SlashCommandBuilder,PermissionFlagsBits,mw,db,EmbedBuilder,ActionRowBuilder,ButtonBuilder,ButtonStyle,guild,mod}=require('./_helpers');const music=require('../services/music');const ticket=require('../services/tickets');const repo=require('../repositories/guild');const levels=require('../services/levels');const eco=require('../services/economy');
-const panel={data:new SlashCommandBuilder().setName('ticket-panel').setDescription('Post the DYNEX ticket panel').setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels),execute:i=>mw.createMiddleware({permissions:[PermissionFlagsBits.ManageChannels]})(i,null,async()=>{await i.reply(ticket.panel())})};
-module.exports=panel;

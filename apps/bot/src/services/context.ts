@@ -1,0 +1,2 @@
+import {Client} from 'discord.js'; import {createDb} from '@dynex/database'; import {env} from '@dynex/config'; import {log} from '@dynex/logger';
+export const dbctx=createDb(env.DATABASE_URL); export const runtime={client:null as Client|null}; export function audit(guildId:string,actorId:string,action:string,targetId?:string,metadata?:Record<string,unknown>){log.info('audit',{guildId,actorId,action,targetId,metadata});}

@@ -1,2 +1,0 @@
-const {SlashCommandBuilder,PermissionFlagsBits}=require('discord.js');const {mw}=require('./_helpers');const music=require('../services/music');
-module.exports={data:new SlashCommandBuilder().setName('247').setDescription('Toggle 24/7 mode'),execute:i=>mw.createMiddleware({botPermissions:[PermissionFlagsBits.Connect,PermissionFlagsBits.Speak]})(i,null,async()=>{const p=music.assertVoiceControl(i);p.set247(!p.twentyFour);await i.reply(`♾️ 24/7: **${p.twentyFour?'ON':'OFF'}**`)})};

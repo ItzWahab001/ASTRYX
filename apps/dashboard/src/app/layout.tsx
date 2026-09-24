@@ -1,0 +1,1 @@
+import './globals.css'; import type {ReactNode} from 'react'; export const metadata={title:'DYNEX Dashboard',description:'Production Discord server control center'}; export default function Layout({children}:{children:ReactNode}){return <html lang="en"><body>{children}</body></html>}

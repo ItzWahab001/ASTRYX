@@ -1,25 +1,18 @@
 # DYNEX Deployment
 
 ## Railway
-1. Push this repository to GitHub.
-2. Create a Railway service from the repository.
-3. Railway will use the included `Dockerfile`.
-4. Add all required `.env` values in Railway Variables.
-5. Use a persistent volume for `/app/data` if running SQLite.
-6. Set `PUBLIC_BASE_URL=https://dynex.xyz` and `DISCORD_REDIRECT_URI=https://dynex.xyz/auth/callback`.
-7. Point the custom domain to the Railway service.
-8. Verify `/health` returns `ok: true`.
+1. Create a Railway project.
+2. Add PostgreSQL.
+3. Deploy the repository with the root Dockerfile.
+4. Set the variables from `.env.example`.
+5. Set `OAUTH_REDIRECT_URI` to the deployed dashboard callback URL and add the same URL in the Discord Developer Portal.
+6. Run the migration SQL from `packages/database/drizzle/0000_init.sql` and `0001_systems.sql` against PostgreSQL before first production start.
 
-## Docker
-```bash
-cp .env.example .env
-# edit .env
-npm install
-npm run migrate
-docker compose up -d --build
-```
+## Discord permissions/intents
+DYNEX needs the privileged intents actually used by the configured systems, especially Guild Members and Message Content. Discord has updated data-access requirements, so enable only the intents the deployment genuinely needs and follow Discord's current developer review requirements. citeturn0search13
 
-## Required production values
-`DISCORD_TOKEN`, `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_SECRET`, `DISCORD_REDIRECT_URI`, `SESSION_SECRET`, `PUBLIC_BASE_URL`.
+## AutoMod
+Native AutoMod rule creation requires the bot to have the permissions Discord requires for managing moderation rules. DYNEX uses Discord's supported AutoMod API rather than a private implementation. citeturn0search0turn0search12
 
-AI is optional. Music requires FFmpeg, which is installed by the provided Docker image.
+## Music
+Set `FFMPEG_PATH`. The current player accepts direct HTTP(S) media URLs. YouTube/Spotify resolution is intentionally not claimed without a compliant resolver/provider.

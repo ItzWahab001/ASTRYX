@@ -1,0 +1,1 @@
+import type {ReactNode} from 'react'; export const theme={background:'#090a0d',panel:'#111318',accent:'#e53935',border:'#282c35'}; export function Panel({children}:{children:ReactNode}){return <div style={{background:theme.panel,border:`1px solid ${theme.border}`,borderRadius:16,padding:18}}>{children}</div>}

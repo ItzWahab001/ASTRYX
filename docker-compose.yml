@@ -1,7 +1,23 @@
 services:
-  dynex:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: dynex
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports: ["5432:5432"]
+    volumes: [dynex-pg:/var/lib/postgresql/data]
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+  bot:
     build: .
-    restart: unless-stopped
     env_file: .env
-    ports: ["3000:3000"]
-    volumes: ["./data:/app/data"]
+    depends_on: [postgres, redis]
+  dashboard:
+    build: .
+    command: ["pnpm","start:dashboard"]
+    env_file: .env
+    depends_on: [postgres, redis]
+volumes:
+  dynex-pg:

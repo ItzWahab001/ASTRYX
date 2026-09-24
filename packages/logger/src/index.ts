@@ -1,0 +1,2 @@
+export function logger(level:'debug'|'info'|'warn'|'error',message:string,meta:Record<string,unknown>={}){console.log(JSON.stringify({ts:new Date().toISOString(),level,message,...meta}));}
+export const log={debug:(m:string,x?:Record<string,unknown>)=>logger('debug',m,x),info:(m:string,x?:Record<string,unknown>)=>logger('info',m,x),warn:(m:string,x?:Record<string,unknown>)=>logger('warn',m,x),error:(m:string,x?:Record<string,unknown>)=>logger('error',m,x)};

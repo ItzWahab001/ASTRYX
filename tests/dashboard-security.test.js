@@ -1,3 +1,0 @@
-const test=require('node:test');const assert=require('node:assert/strict');const {hasManageGuild,safeGuildId}=require('../src/dashboard-security');
-test('dashboard accepts Manage Guild and rejects malformed guild ids',()=>{assert.equal(hasManageGuild({permissions:'32'}),true);assert.equal(hasManageGuild({permissions:'0'}),false);assert.equal(safeGuildId('12345678901234567'),true);assert.equal(safeGuildId('abc'),false)});
-test('dashboard permission parsing supports bigint and administrator',()=>{assert.equal(hasManageGuild({permissions:32n}),true);assert.equal(hasManageGuild({permissions:8n}),true);assert.equal(hasManageGuild({permissions:'8'}),true);assert.equal(hasManageGuild({permissions:'invalid'}),false)});

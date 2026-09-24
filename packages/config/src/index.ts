@@ -1,0 +1,3 @@
+import { z } from 'zod';
+export const envSchema=z.object({DISCORD_TOKEN:z.string().min(1),DISCORD_CLIENT_ID:z.string().min(1),DISCORD_CLIENT_SECRET:z.string().min(1),DISCORD_REDIRECT_URI:z.string().url(),DATABASE_URL:z.string().min(1),REDIS_URL:z.string().optional(),DASHBOARD_URL:z.string().url(),NEXTAUTH_SECRET:z.string().min(16),AI_API_KEY:z.string().optional(),AI_BASE_URL:z.string().url().optional(),AI_MODEL:z.string().optional(),TRANSLATION_API_KEY:z.string().optional(),TRANSLATION_BASE_URL:z.string().url().optional(),LOG_LEVEL:z.enum(['debug','info','warn','error']).default('info'),DEV_GUILD_ID:z.string().optional()});
+export const env=envSchema.parse(process.env);

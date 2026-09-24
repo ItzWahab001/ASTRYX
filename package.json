@@ -1,42 +1,29 @@
 {
-  "name": "dynex",
-  "version": "2.3.3",
+  "name": "dynex-platform",
   "private": true,
-  "type": "commonjs",
-  "main": "src/index.js",
-  "engines": {
-    "node": ">=20"
-  },
+  "version": "1.0.0",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node --watch src/index.js",
-    "test": "node --test",
+    "build": "pnpm -r build",
+    "dev": "pnpm --parallel --filter @dynex/bot --filter @dynex/dashboard dev",
     "lint": "eslint .",
-    "migrate": "node src/database/migrate.js",
-    "check": "node --check src/index.js && node src/tools/load-check.js",
-    "audit": "node src/tools/load-check.js && node --test",
-    "verify": "npm test && node src/tools/load-check.js",
-    "syntax": "node -e \"const fs=require('fs'),path=require('path');function w(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,e.name);e.isDirectory()?w(p):e.name.endsWith('.js')&&require('child_process').execFileSync(process.execPath,['--check',p])}}w('src')\"",
-    "integration:discord": "node src/tools/discord-integration-check.js"
-  },
-  "dependencies": {
-    "@discordjs/voice": "0.17.0",
-    "better-sqlite3": "11.3.0",
-    "connect-sqlite3": "0.9.15",
-    "discord.js": "14.16.3",
-    "dotenv": "16.4.5",
-    "ejs": "3.1.10",
-    "express": "4.21.1",
-    "express-rate-limit": "7.4.1",
-    "helmet": "8.0.0",
-    "openai": "4.76.1",
-    "pino": "9.5.0",
-    "play-dl": "1.9.7",
-    "zod": "3.23.8",
-    "express-session": "1.18.1"
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "format": "prettier --write .",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "start:bot": "pnpm --filter @dynex/bot start",
+    "start:dashboard": "pnpm --filter @dynex/dashboard start",
+    "prestart:bot": "pnpm --filter @dynex/database migrate"
   },
   "devDependencies": {
-    "eslint": "9.15.0",
-    "globals": "15.12.0"
-  }
+    "@types/node": "^22.10.2",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

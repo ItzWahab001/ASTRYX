@@ -1,0 +1,1 @@
+{"name":"@dynex/design-system","version":"1.0.0","private":true,"type":"module","scripts":{"build":"tsc"},"peerDependencies":{"react":"^19.0.0"},"devDependencies":{"@types/react":"^19.0.0","typescript":"^5.7.2"}}

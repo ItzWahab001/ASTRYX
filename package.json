@@ -1,0 +1,48 @@
+{
+  "name": "meridian",
+  "version": "0.1.0",
+  "description": "Meridian Discord bot — unified moderation, anti-raid/anti-nuke security, engagement, tickets and analytics platform.",
+  "private": true,
+  "type": "module",
+  "main": "dist/shard.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/shard.js",
+    "dev": "tsx watch src/bot.ts",
+    "migrate": "node dist/db/migrate.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run tests/*.test.ts",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "tsx scripts/e2e-smoke.ts",
+    "lint": "eslint src tests --ext .ts"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1",
+    "pg": "^8.13.1",
+    "pino": "^9.5.0"
+  },
+  "devDependencies": {
+    "@types/ioredis-mock": "^8.2.8",
+    "@types/node": "^22.9.0",
+    "@types/pg": "^8.11.10",
+    "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "@typescript-eslint/parser": "^8.13.0",
+    "eslint": "^9.14.0",
+    "ioredis-mock": "^8.9.0",
+    "pg-mem": "^3.0.4",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

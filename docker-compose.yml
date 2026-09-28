@@ -1,0 +1,37 @@
+version: "3.9"
+
+# Brings up real Postgres and Redis for local development and the E2E smoke test
+# (`npm run test:e2e`, see scripts/e2e-smoke.ts). Not used by the unit/integration test suite,
+# which runs against pg-mem/ioredis-mock instead — this is for the "actually run it against
+# live-ish infra" pass (acceptance criterion #3).
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: meridian
+      POSTGRES_PASSWORD: meridian
+      POSTGRES_DB: meridian
+    ports:
+      - "5432:5432"
+    volumes:
+      - meridian_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U meridian -d meridian"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  meridian_pg_data:
